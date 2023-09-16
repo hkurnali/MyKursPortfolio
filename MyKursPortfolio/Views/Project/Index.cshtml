@@ -1,0 +1,39 @@
+﻿@model List<MyKursPortfolio.Models.Project>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Proje Sayfası</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Proje Adı</th>
+        <th>Proje Kategorisi</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Githupda Gör</th>
+    </tr>
+
+    @foreach (var item in Model)
+
+    {
+        <tr>
+
+            <td>@item.ProjeID</td>
+            <td>@item.Title</td>
+            <td>@item.Category.CategoryName</td>
+            <td><a href="/Project/DeleteProject/@item.ProjeID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Project/UpdateProject/@item.ProjeID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Project/GithubProject/@item.ProjeID" class="btn btn-dark">Github</a></td>
+
+
+
+        </tr>
+
+    }
+
+
+</table>
+<a href="/Project/AddProjectl" class="btn btn-primary"> Yeni Proje Ekle</a>
