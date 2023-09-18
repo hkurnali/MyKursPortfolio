@@ -11,7 +11,7 @@ namespace MyKursPortfolio.Controllers
     {
 
         MyPortfolioDbEntities db= new MyPortfolioDbEntities();
-        
+        [Authorize]
         public ActionResult Index()
         {
             var values = db.Service.ToList();
