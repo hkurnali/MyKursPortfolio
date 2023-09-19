@@ -54,6 +54,13 @@
           <Property Name="Subject" Type="nvarchar" MaxLength="100" />
           <Property Name="Message" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="Cv">
+          <Key>
+            <PropertyRef Name="CvID" />
+          </Key>
+          <Property Name="CvID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CvURL" Type="nvarchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="Project">
           <Key>
             <PropertyRef Name="ProjeID" />
@@ -118,6 +125,7 @@
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cv" EntityType="Self.Cv" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
@@ -165,6 +173,7 @@
           <EntitySet Name="Address" EntityType="MyPortfolioDbModel.Address" />
           <EntitySet Name="Admin" EntityType="MyPortfolioDbModel.Admin" />
           <EntitySet Name="Contact" EntityType="MyPortfolioDbModel.Contact" />
+          <EntitySet Name="Cv" EntityType="MyPortfolioDbModel.Cv" />
         </EntityContainer>
         <EntityType Name="Testimonial">
           <Key>
@@ -256,6 +265,13 @@
           <Property Name="Mail" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Subject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Cv">
+          <Key>
+            <PropertyRef Name="CvID" />
+          </Key>
+          <Property Name="CvID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CvURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -365,6 +381,14 @@
                 <ScalarProperty Name="Mail" ColumnName="Mail" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cv">
+            <EntityTypeMapping TypeName="MyPortfolioDbModel.Cv">
+              <MappingFragment StoreEntitySet="Cv">
+                <ScalarProperty Name="CvURL" ColumnName="CvURL" />
+                <ScalarProperty Name="CvID" ColumnName="CvID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

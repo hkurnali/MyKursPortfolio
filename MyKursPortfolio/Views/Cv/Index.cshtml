@@ -1,0 +1,28 @@
+﻿@model List<MyKursPortfolio.Models.Cv> 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Hizmet Listesi</h2>
+<table class="table table-bordered">
+
+    <tr>
+        <th>Cv ID</th>
+        <th>Cv Adresi</th>
+        <th>Hizmet Sil</th>
+        <th>Hizmet Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.CvID</td>
+            <td>@item.CvURL</td>
+            <td><a href="/Cv/DeleteCv/@item.CvID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Cv/UpdateCv/@item.CvID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+
